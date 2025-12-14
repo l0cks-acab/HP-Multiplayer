@@ -1,44 +1,101 @@
-#  House Party Multiplayer
+# HP Multiplayer Mod
+
+A P2P (Peer-to-Peer) multiplayer mod for House Party that allows multiple players to play together in the same game world.
+
 **Author:** l0cks-acab
 
-### Prerequisites
-1. **House Party** installed via Steam
-2. **MelonLoader** installed in House Party
-   - Download from: https://github.com/LavaGang/MelonLoader/releases
-   - Run the installer and select `HouseParty.exe`
-   - Launch the game once to initialize MelonLoader
+## Features
 
-### Installing the Mod
+- **P2P Networking**: Direct player-to-player connection using UDP
+- **Player Synchronization**: Real-time position and rotation sync
+- **Host/Join**: Easy hosting and joining of multiplayer sessions
+- **Simple UI**: Press M to open the multiplayer menu
 
-1. **Find your House Party installation folder:**
-   - Usually: `C:\Program Files (x86)\Steam\steamapps\common\House Party\`
-   - Or right-click House Party in Steam → Properties → Local Files → Browse
+## Installation
 
-2. **Copy the DLL:**
-   - Copy `HPMultiplayer.dll` to the `Mods` folder:
-   - `[House Party Folder]\Mods\HPMultiplayer.dll`
+1. Build the mod using Visual Studio (targets .NET Framework 4.7.2)
+2. Copy `HPMultiplayer.dll` to `Steam\steamapps\common\House Party\Mods\`
+3. Make sure MelonLoader is installed in House Party
+4. Launch the game
 
-3. **Launch the game:**
-   - Start House Party
-   - The mod will load automatically
-   - Press **M** in-game to open the multiplayer menu
+## Usage
+
+1. **Hosting a Game**:
+   - Press `M` to open the multiplayer UI
+   - Click "Host Game"
+   - Share your IP address with friends
+   - Port will default to 7777
+
+2. **Joining a Game**:
+   - Press `M` to open the multiplayer UI
+   - Enter the host's IP address
+   - Enter the port (default: 7777)
+   - Click "Join Game"
+
+3. **Playing Together**:
+   - Once connected, synchronization happens automatically!
+   - You'll see your friend as a colored capsule in the game world:
+     - **Blue capsule** = Player 2 (the person who joined)
+     - **Green capsule** = Player 1 (the host)
+   - Both players' positions sync in real-time (~30 updates per second)
+   - Make sure both players are in the game world (not in menus) and in the same scene/level
+   - The remote player capsule will appear and move to match your friend's position
+
+4. **Port Forwarding**:
+   - If hosting from behind a router, you'll need to forward port 7777 (and 7778)
+   - Or use a VPN/hamachi for easier connection
+
+## Current Status
+
+This is a **foundation/prototype** for multiplayer. Currently implemented:
+
+✅ Basic UDP networking
+✅ Player connection/disconnection
+✅ Position synchronization
+✅ Simple UI for hosting/joining
+
+## TODO / Next Steps
+
+- [ ] Find actual player GameObject in House Party
+- [ ] Sync player animations
+- [ ] Sync NPC states
+- [ ] Sync interactive objects (items, doors, etc.)
+- [ ] Improve player representation (use actual player model)
+- [ ] Add name tags above players
+- [ ] Add chat system
+- [ ] Handle scene changes
+- [ ] Add ping/latency display
+- [ ] Better error handling
+- [ ] NAT traversal / punch-through for easier connections
+
+## Technical Notes
+
+- Uses raw UDP sockets for P2P communication
+- Player updates sent at ~30 Hz
+- Smooth interpolation of remote player positions
+- Minimal dependencies (just MelonLoader and Unity assemblies)
 
 ## Troubleshooting
 
-If users report issues:
+- **Can't connect**: Check firewall settings, ensure ports are open
+- **Players not appearing**: 
+  - Verify both players have the mod installed
+  - Make sure both players are in the game world (not in menus)
+  - Both players should be in the same scene/level
+  - Check MelonLoader logs for connection messages
+  - The remote player capsule may spawn at (0,0,0) initially, then move to the correct position
+- **Connection drops**: Check network stability, may need better error handling
+- **Can't see friend's position**: The mod tries to find the player GameObject automatically. If it can't find it, it falls back to using the camera position.
 
-1. **Mod doesn't load:**
-   - Verify MelonLoader is installed
-   - Check that DLL is in the correct `Mods` folder (not a subfolder)
-   - Check MelonLoader console for errors
+## Contributing
 
-2. **Can't connect:**
-   - Both players need the same version of the mod
-   - Check firewall settings
-   - Ensure port forwarding if needed (port 7777)
+This is an ambitious project! Contributions welcome for:
+- Finding game objects/classes to sync
+- Improving networking reliability
+- Adding more synchronized features
+- UI improvements
 
-3. **Game crashes:**
-   - Ensure MelonLoader is up to date
-   - Check game version compatibility
-   - Review MelonLoader log files
+## License
+
+MIT License - Feel free to use and modify!
 
