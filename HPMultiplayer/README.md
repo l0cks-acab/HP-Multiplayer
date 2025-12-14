@@ -22,14 +22,18 @@ A P2P (Peer-to-Peer) multiplayer mod for House Party that allows multiple player
 - **P2P Mode** (Default): One player hosts, another joins directly (2 players max)
 - **Dedicated Server Mode**: Connect to a standalone server (up to 16 players, suitable for AMP hosting)
 
-See `DEDICATED_SERVER_README.md` for dedicated server setup and `AMP_SETUP_GUIDE.md` for AMP hosting instructions.
+See [SERVER_SETUP.md](SERVER_SETUP.md) for dedicated server setup and [AMP_SETUP.md](AMP_SETUP.md) for AMP hosting instructions.
 
 ## Installation
 
-1. Build the mod using Visual Studio (targets .NET Framework 4.7.2)
-2. Copy `HPMultiplayer.dll` to `Steam\steamapps\common\House Party\Mods\`
-3. Make sure MelonLoader is installed in House Party
+**Quick Install:**
+1. Install MelonLoader in House Party (download from https://github.com/LavaGang/MelonLoader/releases)
+2. Download `HPMultiplayer.dll` from [Releases](https://github.com/l0cks-acab/HP-Multiplayer/releases)
+3. Copy `HPMultiplayer.dll` to `Steam\steamapps\common\House Party\Mods\`
 4. Launch the game
+
+**Building from Source:**
+See the main [README.md](../README.md) for detailed build instructions.
 
 ## Usage
 
