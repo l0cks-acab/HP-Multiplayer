@@ -11,6 +11,17 @@ using HPMultiplayer.Synchronization;
 namespace HPMultiplayer.Networking
 {
     /// <summary>
+    /// P2P message types
+    /// </summary>
+    public enum MessageType : byte
+    {
+        Connection = 1,
+        PlayerUpdate = 2,
+        Disconnect = 3,
+        GameState = 4
+    }
+
+    /// <summary>
     /// Manages P2P network connections using UDP sockets
     /// </summary>
     public class NetworkManager
