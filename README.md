@@ -12,6 +12,8 @@ A P2P (Peer-to-Peer) multiplayer mod for House Party that allows multiple player
 - **Server Browser**: Browse and join available games (Press B)
 - **Master Server Support**: Automatic game registration and discovery
 - **Connection Retry**: Automatic retry logic for reliable connections
+- **Player Nametags**: See player names above remote players
+- **Scene Change Handling**: Automatic player object recreation when changing scenes/levels
 - **Simple UI**: Press M to open the multiplayer menu, Press B for server browser
 
 ## Installation
@@ -45,12 +47,14 @@ A P2P (Peer-to-Peer) multiplayer mod for House Party that allows multiple player
 
 4. **Playing Together**:
    - Once connected, synchronization happens automatically!
-   - You'll see your friend as a colored capsule in the game world:
+   - You'll see your friend as a colored capsule (or game model if found) in the game world:
      - **Blue capsule** = Player 2 (the person who joined)
      - **Green capsule** = Player 1 (the host)
+   - Player nametags appear above remote players showing "Player 1" or "Player 2"
    - Both players' positions sync in real-time (~30 updates per second)
    - Make sure both players are in the game world (not in menus) and in the same scene/level
-   - The remote player capsule will appear and move to match your friend's position
+   - The remote player representation will appear and move to match your friend's position
+   - Scene changes are handled automatically - player objects will be recreated when moving between levels
 
 5. **Port Forwarding**:
    - If hosting from behind a router, you'll need to forward port 7777 (and 7778)
@@ -60,25 +64,42 @@ A P2P (Peer-to-Peer) multiplayer mod for House Party that allows multiple player
 
 This is a **foundation/prototype** for multiplayer. Currently implemented:
 
-✅ Basic UDP networking
-✅ Player connection/disconnection
-✅ Position synchronization
-✅ Simple UI for hosting/joining
-✅ Server browser with game discovery
-✅ Master server client (requires hosted master server)
-✅ Connection retry logic for reliable connections
-✅ Improved connection handshake
+✅ **Networking & Connection**
+- Basic UDP P2P networking
+- Player connection/disconnection
+- Connection retry logic for reliable connections
+- Improved connection handshake
+- Server browser with game discovery
+- Master server client (requires hosted master server)
+
+✅ **Player Synchronization**
+- Real-time position and rotation sync (~30 Hz)
+- Player nametags above remote players
+- Scene change handling (automatic player object recreation)
+- Uses actual player model for remote player representations
+- Smooth interpolation for remote player movement
+
+✅ **Game State Synchronization** (Work in Progress)
+- Framework for NPC and interactive object synchronization
+- Periodic full sync (every 1 second) + change-based sync
+- Proper interpolation pattern following Unity best practices
+- Host-authoritative game state (only host sends NPC/object updates)
+
+✅ **UI & User Experience**
+- Simple UI for hosting/joining (Press M)
+- Server browser (Press B)
+- Copy/paste support for IP/Port fields
+- Connection status indicators
+- Display host IP address and port
 
 ## TODO / Next Steps
 
 - [ ] Find actual player GameObject in House Party
 - [ ] Sync player animations
-- [ ] Sync NPC states
-- [ ] Sync interactive objects (items, doors, etc.)
-- [ ] Improve player representation (use actual player model)
-- [ ] Add name tags above players
+- [ ] Sync NPC states (partially implemented)
+- [ ] Sync interactive objects (items, doors, etc.) (partially implemented)
+- [ ] Improve player representation (use actual player model instead of capsules)
 - [ ] Add chat system
-- [ ] Handle scene changes
 - [ ] Add ping/latency display
 - [ ] Better error handling
 - [ ] NAT traversal / punch-through for easier connections
@@ -87,13 +108,30 @@ This is a **foundation/prototype** for multiplayer. Currently implemented:
 
 ## Technical Notes
 
+**Networking:**
 - Uses raw UDP sockets for P2P communication
-- Player updates sent at ~30 Hz
-- Smooth interpolation of remote player positions
-- Minimal dependencies (just MelonLoader and Unity assemblies)
-- Master server uses UDP protocol for game registration/discovery
+- Player updates sent at ~30 Hz (~33ms intervals)
 - Connection handshake with automatic retry (up to 5 attempts)
 - Default port: 7777 (host), 7778 (client)
+- Master server uses UDP protocol for game registration/discovery
+
+**Player Synchronization:**
+- Smooth interpolation of remote player positions/rotations
+- Uses actual player model from game (cloned and stripped of scripts)
+- Automatic player object recreation on scene changes
+- Position synchronization via PlayerModelFinder (searches for player by name/tag/camera)
+
+**Game State Synchronization:**
+- Host-authoritative architecture (only host sends NPC/object updates)
+- Periodic full sync every 1 second + change-based sync (every 200ms)
+- Follows Unity state synchronization best practices
+- Proper interpolation pattern (network updates queued, applied in Update loop)
+- Object registration via GameObjectFinder (searches by naming patterns)
+
+**Architecture:**
+- Minimal dependencies (just MelonLoader and Unity assemblies)
+- Thread-safe network operations (Unity API calls queued to main thread)
+- Il2Cpp-compatible (avoids stripped methods, uses manual UI layout)
 
 ## Troubleshooting
 
@@ -118,12 +156,25 @@ This is a **foundation/prototype** for multiplayer. Currently implemented:
 
 - **Connection drops**: Check network stability, connection will attempt to retry automatically
 
-- **Can't see friend's position**: The mod tries to find the player GameObject automatically. If it can't find it, it falls back to using the camera position.
+    - **Can't see friend's position**: 
+      - The mod tries to find the player GameObject automatically using PlayerModelFinder
+      - Check logs for "Found player by name: ..." messages
+      - If player object not found, it falls back to using the camera position
+      - Make sure both players are in the game world (not in menus)
+      - Remote player should appear as a cloned player model (or capsule if model not found)
 
-- **Connection says "connected" but nothing happens**: 
-  - Wait a few seconds for the connection handshake to complete
-  - Check that both players are actually in-game (not in menus)
-  - Verify ports 7777 and 7778 are not blocked by firewall
+    - **Connection says "connected" but nothing happens**: 
+      - Wait a few seconds for the connection handshake to complete
+      - Check that both players are actually in-game (not in menus)
+      - Verify ports 7777 and 7778 are not blocked by firewall
+      - Check MelonLoader logs for "Created NetworkPlayer for remote Player X" messages
+
+    - **NPCs/interactive objects not syncing**:
+      - This feature is still in development
+      - Check logs for "Registered NPC for sync: ..." messages
+      - NPCs must match naming patterns (contain "npc", "character", "guest", "person")
+      - Only the host sends NPC updates; clients receive and apply them
+      - If NPCs aren't being found, their names may not match the search patterns
 
 ## Contributing
 
