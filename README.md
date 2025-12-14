@@ -11,12 +11,17 @@ A P2P (Peer-to-Peer) multiplayer mod for House Party that allows multiple player
 - **Host/Join**: Easy hosting and joining of multiplayer sessions
 - **Simple UI**: Press M to open the multiplayer menu
 
+### Prerequisites
+1. **House Party** installed via Steam
+2. **MelonLoader** installed in House Party
+   - Download from: https://github.com/LavaGang/MelonLoader/releases
+   - Run the installer and select `HouseParty.exe`
+   - Launch the game once to initialize MelonLoader
+
 ## Installation
 
-1. Build the mod using Visual Studio (targets .NET Framework 4.7.2)
-2. Copy `HPMultiplayer.dll` to `Steam\steamapps\common\House Party\Mods\`
-3. Make sure MelonLoader is installed in House Party
-4. Launch the game
+1. Copy `HPMultiplayer.dll` to `Steam\steamapps\common\House Party\Mods\`
+2. Launch the game
 
 ## Usage
 
