@@ -28,7 +28,7 @@ See [SERVER_SETUP.md](SERVER_SETUP.md) for dedicated server setup and [AMP_SETUP
 
 **Quick Install:**
 1. Install MelonLoader in House Party (download from https://github.com/LavaGang/MelonLoader/releases)
-2. Download `HPMultiplayer.dll` from [Releases](https://github.com/l0cks-acab/HP-Multiplayer/releases)
+2. Download `HPMultiplayer.dll` from [Release Build](https://github.com/l0cks-acab/HP-Multiplayer/tree/main/HPMultiplayer/obj/Release)
 3. Copy `HPMultiplayer.dll` to `Steam\steamapps\common\House Party\Mods\`
 4. Launch the game
 

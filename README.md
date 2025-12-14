@@ -24,7 +24,7 @@ A multiplayer mod for House Party that allows multiple players to play together 
    - Launch House Party once to initialize MelonLoader
 
 2. **Install the Mod:**
-   - Download `HPMultiplayer.dll` from [Releases](https://github.com/l0cks-acab/HP-Multiplayer/releases) or build from source
+   - Download `HPMultiplayer.dll` from [Release Build](https://github.com/l0cks-acab/HP-Multiplayer/tree/main/HPMultiplayer/obj/Release) or build from source
    - Copy `HPMultiplayer.dll` to: `Steam\steamapps\common\House Party\Mods\`
    - Launch the game
 
