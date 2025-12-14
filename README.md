@@ -19,7 +19,7 @@ A P2P (Peer-to-Peer) multiplayer mod for House Party that allows multiple player
 ## Installation
 
 1. Copy `HPMultiplayer.dll` to `Steam\steamapps\common\House Party\Mods\`
-2. Make sure MelonLoader is installed in House Party
+2. Make sure [MelonLoader](https://melonloader.co) is installed in House Party
 3. Launch the game
 
 ## Usage
