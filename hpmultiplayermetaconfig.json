@@ -1,0 +1,42 @@
+{
+  "ID": "hpmultiplayer",
+  "DisplayName": "HP Multiplayer Server",
+  "Description": "Dedicated server for HP Multiplayer mod - allows multiple players to play House Party together",
+  "Category": "Game Server",
+  "Homepage": "https://github.com/yourusername/HPMultiplayer",
+  "Author": "l0cks-acab",
+  "Version": "1.0.0",
+  "Tags": [
+    "game",
+    "multiplayer",
+    "houseparty",
+    "dedicated-server"
+  ],
+  "Platform": [
+    "Linux",
+    "Windows"
+  ],
+  "RequiredRole": "Admin",
+  "Dependencies": [
+    {
+      "Type": "Software",
+      "Name": "Mono Runtime",
+      "Description": "Required for Linux. Install: sudo apt-get install mono-complete",
+      "Platform": [
+        "Linux"
+      ]
+    }
+  ],
+  "Support": {
+    "Documentation": "https://github.com/yourusername/HPMultiplayer/blob/main/HPMultiplayer/DEDICATED_SERVER_README.md",
+    "Wiki": "https://github.com/yourusername/HPMultiplayer/wiki",
+    "Issues": "https://github.com/yourusername/HPMultiplayer/issues"
+  },
+  "Notes": [
+    "This server requires the HP Multiplayer mod to be installed on client machines",
+    "On Linux, ensure Mono runtime is installed: sudo apt-get install mono-complete",
+    "Default port is 7777 (UDP). Configure firewall accordingly.",
+    "Server supports up to 16 players by default (configurable)"
+  ]
+}
+

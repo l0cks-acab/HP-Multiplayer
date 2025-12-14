@@ -1,0 +1,7 @@
+Name=HP Multiplayer Server
+Description=Dedicated server for HP Multiplayer mod - House Party multiplayer dedicated server
+Author=l0cks-acab
+Version=1.0.0
+Module=Generic
+OS=Windows,Linux
+
