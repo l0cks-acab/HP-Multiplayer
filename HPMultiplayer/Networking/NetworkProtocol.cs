@@ -162,15 +162,44 @@ namespace HPMultiplayer.Networking
             playerId = 0;
             playerName = "";
             
-            if (data.Length < 5) return false;
+            // Minimum size: 1 byte (message type) + 4 bytes (playerId) + 4 bytes (nameLength) = 9 bytes
+            if (data == null || data.Length < 9)
+            {
+                return false;
+            }
             
-            playerId = BitConverter.ToInt32(data, 1);
-            int nameLength = BitConverter.ToInt32(data, 5);
-            
-            if (data.Length < 9 + nameLength) return false;
-            
-            playerName = Encoding.UTF8.GetString(data, 9, nameLength);
-            return true;
+            try
+            {
+                playerId = BitConverter.ToInt32(data, 1);
+                int nameLength = BitConverter.ToInt32(data, 5);
+                
+                // Validate nameLength is reasonable (prevent negative or extremely large values)
+                if (nameLength < 0 || nameLength > 256)
+                {
+                    return false;
+                }
+                
+                // Check we have enough bytes: 1 (type) + 4 (playerId) + 4 (nameLength) + nameLength bytes
+                if (data.Length < 9 + nameLength)
+                {
+                    return false;
+                }
+                
+                // Ensure we're not trying to read past the array bounds
+                if (9 + nameLength > data.Length)
+                {
+                    return false;
+                }
+                
+                // Extract player name
+                playerName = Encoding.UTF8.GetString(data, 9, nameLength);
+                return true;
+            }
+            catch (Exception)
+            {
+                // Catch any index out of range or other parsing errors
+                return false;
+            }
         }
 
         /// <summary>
