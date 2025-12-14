@@ -1,7 +1,6 @@
-Name=HP Multiplayer Server
-Description=Dedicated server for HP Multiplayer mod - House Party multiplayer dedicated server
-Author=l0cks-acab
-Version=1.0.0
-Module=Generic
-OS=Windows,Linux
+GenericModule.Meta.AppConfigId=hpmultiplayer
+GenericModule.Meta.DisplayName=HP Multiplayer Server
+GenericModule.Meta.Description=Dedicated server for HP Multiplayer mod - House Party multiplayer dedicated server
+GenericModule.Meta.DisplayImageSource=
+GenericModule.Meta.OS=Linux
 
