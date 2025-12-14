@@ -3,7 +3,7 @@
   "DisplayName": "HP Multiplayer Server",
   "Description": "Dedicated server for HP Multiplayer mod - allows multiple players to play House Party together",
   "Category": "Game Server",
-  "Homepage": "https://github.com/yourusername/HPMultiplayer",
+  "Homepage": "https://github.com/l0cks-acab/HP-Multiplayer",
   "Author": "l0cks-acab",
   "Version": "1.0.0",
   "Tags": [
@@ -28,9 +28,9 @@
     }
   ],
   "Support": {
-    "Documentation": "https://github.com/yourusername/HPMultiplayer/blob/main/HPMultiplayer/DEDICATED_SERVER_README.md",
-    "Wiki": "https://github.com/yourusername/HPMultiplayer/wiki",
-    "Issues": "https://github.com/yourusername/HPMultiplayer/issues"
+    "Documentation": "https://github.com/l0cks-acab/HP-Multiplayer/blob/main/HPMultiplayer/SERVER_SETUP.md",
+    "Wiki": "https://github.com/l0cks-acab/HP-Multiplayer/wiki",
+    "Issues": "https://github.com/l0cks-acab/HP-Multiplayer/issues"
   },
   "Notes": [
     "This server requires the HP Multiplayer mod to be installed on client machines",
