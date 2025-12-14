@@ -513,13 +513,5 @@ namespace HPMultiplayer.Networking
             }
         }
     }
-
-    public enum MessageType : byte
-    {
-        Connection = 1,
-        PlayerUpdate = 2,
-        Disconnect = 3,
-        GameState = 4
-    }
 }
 
