@@ -1,0 +1,22 @@
+[Unit]
+Description=HP Multiplayer Dedicated Server
+After=network.target
+
+[Service]
+Type=simple
+User=amp
+Group=amp
+WorkingDirectory=/home/amp/instances/hpmultiplayer
+ExecStart=/usr/bin/mono /home/amp/instances/hpmultiplayer/HPMultiplayer.Server.exe -port 7777 -maxplayers 16
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+
+# Security settings
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
+
