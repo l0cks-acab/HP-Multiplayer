@@ -1,13 +1,12 @@
 # HP Multiplayer Mod
 
-A multiplayer mod for House Party that allows multiple players to play together in the same game world. Supports both P2P hosting and dedicated servers.
+A P2P (Peer-to-Peer) multiplayer mod for House Party that allows multiple players to play together in the same game world.
 
 **Author:** l0cks-acab
 
 ## Features
 
 - **P2P Networking**: Direct player-to-player connection using UDP (2 players)
-- **Dedicated Server**: Standalone server application for hosting (up to 16 players)
 - **Player Synchronization**: Real-time position and rotation sync (~30 Hz)
 - **Server Browser**: Browse and join available games (Press B)
 - **Master Server Support**: Automatic game registration and discovery
@@ -34,31 +33,13 @@ A multiplayer mod for House Party that allows multiple players to play together 
    - **Join:** Enter server IP:port and click "Join Game"
    - Press **B** to open the server browser
 
-### For Server Hosts (Dedicated Server)
+## How It Works
 
-See [SERVER_SETUP.md](HPMultiplayer/SERVER_SETUP.md) for detailed instructions.
-
-**Quick setup:**
-1. Build the server: `msbuild Server\HPMultiplayer.Server.csproj /p:Configuration=Release`
-2. Run: `Server\bin\Release\HPMultiplayer.Server.exe -port 7777 -maxplayers 16`
-3. Players connect using your server's IP address and port
-
-**For Linux server setup:** See [LINUX_SERVER_LAUNCH.md](LINUX_SERVER_LAUNCH.md)
-
-## Server Modes
-
-### P2P Mode (Default)
+### P2P Mode
 - One player hosts from their game
 - Up to 2 players
 - Simple setup, no server needed
 - Press M → "Host Game"
-
-### Dedicated Server Mode
-- Standalone server application
-- Up to 16 players
-- Better for public servers
-- Runs independently (headless)
-- See [SERVER_SETUP.md](HPMultiplayer/SERVER_SETUP.md) for setup
 
 ## Building from Source
 
@@ -127,9 +108,7 @@ See [SERVER_SETUP.md](HPMultiplayer/SERVER_SETUP.md) for detailed instructions.
 
 ## Port Forwarding
 
-If hosting from behind a router, forward:
-- **P2P Mode:** Ports 7777 (UDP) and 7778 (UDP)
-- **Dedicated Server:** Port 7777 (UDP)
+If hosting from behind a router, forward ports 7777 (UDP) and 7778 (UDP).
 
 Alternatively, use a VPN (like Hamachi) for easier connections.
 
@@ -145,8 +124,6 @@ For detailed troubleshooting, see the [main documentation](HPMultiplayer/README.
 ## Documentation
 
 - **[Client Mod README](HPMultiplayer/README.md)** - Full mod documentation
-- **[Server Setup Guide](HPMultiplayer/SERVER_SETUP.md)** - Dedicated server installation and configuration
-- **[Linux Server Launch Guide](LINUX_SERVER_LAUNCH.md)** - Running the server on Linux
 - **[Master Server Info](HPMultiplayer/MASTER_SERVER_INFO.md)** - Setting up a master server for game discovery
 - **[Distribution Guide](HPMultiplayer/DISTRIBUTION.md)** - Sharing and distributing the mod
 

@@ -75,8 +75,6 @@
   <ItemGroup>
     <Compile Include="HPMultiplayerMod.cs" />
     <Compile Include="Networking\NetworkManager.cs" />
-    <Compile Include="Networking\ClientNetworkManager.cs" />
-    <Compile Include="Networking\NetworkProtocol.cs" />
     <Compile Include="Networking\NetworkPlayer.cs" />
     <Compile Include="Networking\NetworkTransform.cs" />
     <Compile Include="Networking\MasterServerClient.cs" />

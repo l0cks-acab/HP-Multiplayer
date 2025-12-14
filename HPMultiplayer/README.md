@@ -7,7 +7,6 @@ A P2P (Peer-to-Peer) multiplayer mod for House Party that allows multiple player
 ## Features
 
 - **P2P Networking**: Direct player-to-player connection using UDP
-- **Dedicated Server Support**: Standalone server application for hosting (supports up to 16 players)
 - **Player Synchronization**: Real-time position and rotation sync
 - **Host/Join**: Easy hosting and joining of multiplayer sessions
 - **Server Browser**: Browse and join available games (Press B)
@@ -17,12 +16,9 @@ A P2P (Peer-to-Peer) multiplayer mod for House Party that allows multiple player
 - **Scene Change Handling**: Automatic player object recreation when changing scenes/levels
 - **Simple UI**: Press M to open the multiplayer menu, Press B for server browser
 
-### Server Modes
+### How It Works
 
-- **P2P Mode** (Default): One player hosts, another joins directly (2 players max)
-- **Dedicated Server Mode**: Connect to a standalone server (up to 16 players)
-
-See [SERVER_SETUP.md](SERVER_SETUP.md) for dedicated server setup.
+- **P2P Mode**: One player hosts, another joins directly (2 players max)
 
 ## Installation
 
