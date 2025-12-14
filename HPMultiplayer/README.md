@@ -20,9 +20,9 @@ A P2P (Peer-to-Peer) multiplayer mod for House Party that allows multiple player
 ### Server Modes
 
 - **P2P Mode** (Default): One player hosts, another joins directly (2 players max)
-- **Dedicated Server Mode**: Connect to a standalone server (up to 16 players, suitable for AMP hosting)
+- **Dedicated Server Mode**: Connect to a standalone server (up to 16 players)
 
-See [SERVER_SETUP.md](SERVER_SETUP.md) for dedicated server setup and [AMP_SETUP.md](AMP_SETUP.md) for AMP hosting instructions.
+See [SERVER_SETUP.md](SERVER_SETUP.md) for dedicated server setup.
 
 ## Installation
 

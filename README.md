@@ -43,7 +43,7 @@ See [SERVER_SETUP.md](HPMultiplayer/SERVER_SETUP.md) for detailed instructions.
 2. Run: `Server\bin\Release\HPMultiplayer.Server.exe -port 7777 -maxplayers 16`
 3. Players connect using your server's IP address and port
 
-**For AMP hosting:** See [AMP_SETUP.md](HPMultiplayer/AMP_SETUP.md)
+**For Linux server setup:** See [LINUX_SERVER_LAUNCH.md](LINUX_SERVER_LAUNCH.md)
 
 ## Server Modes
 
@@ -146,7 +146,7 @@ For detailed troubleshooting, see the [main documentation](HPMultiplayer/README.
 
 - **[Client Mod README](HPMultiplayer/README.md)** - Full mod documentation
 - **[Server Setup Guide](HPMultiplayer/SERVER_SETUP.md)** - Dedicated server installation and configuration
-- **[AMP Setup Guide](HPMultiplayer/AMP_SETUP.md)** - Hosting on AMP (Application Management Panel)
+- **[Linux Server Launch Guide](LINUX_SERVER_LAUNCH.md)** - Running the server on Linux
 - **[Master Server Info](HPMultiplayer/MASTER_SERVER_INFO.md)** - Setting up a master server for game discovery
 - **[Distribution Guide](HPMultiplayer/DISTRIBUTION.md)** - Sharing and distributing the mod
 

@@ -139,9 +139,9 @@ New-NetFirewallRule -DisplayName "HP Multiplayer Server" -Direction Inbound -Pro
 sudo ufw allow 7777/udp
 ```
 
-## Hosting on AMP
+## Linux Server Setup
 
-For hosting on AMP (Application Management Panel), see [AMP_SETUP.md](AMP_SETUP.md).
+For Linux server setup and launch scripts, see [LINUX_SERVER_LAUNCH.md](../LINUX_SERVER_LAUNCH.md).
 
 ## Server Configuration
 
